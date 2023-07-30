@@ -2,7 +2,6 @@ import {UserItems, UserType} from "../types/types";
 import {AppThunk} from "./store";
 import {Dispatch} from "redux";
 import {usersApi} from "../api/usersApi";
-import {log} from "util";
 
 type StateType = {
     users: UserType | null
@@ -10,7 +9,7 @@ type StateType = {
     currentPage: number
     perPage: number
     totalCount: number | undefined
-    isSorting:boolean
+    isSorting: boolean
     user: UserItems | null
     dataFromValue: string
 
@@ -22,9 +21,9 @@ export const initialState: StateType = {
     currentPage: 1,
     perPage: 10,
     totalCount: 0,
-    isSorting:true,
-    user:null,
-    dataFromValue:""
+    isSorting: true,
+    user: null,
+    dataFromValue: ""
 
 };
 
@@ -39,10 +38,10 @@ export const UsersReducer = (state = initialState, action: UsersActionType): Sta
         case "SET-SORTING":
             return {...state, isSorting: !state.isSorting}
         case "SET-USER": {
-            return {...state, user:action.user}
+            return {...state, user: action.user}
         }
-        case "GET-VALUE":{
-            return {...state, dataFromValue:action.value}
+        case "GET-VALUE": {
+            return {...state, dataFromValue: action.value}
         }
         default:
             return state
@@ -53,12 +52,11 @@ export const searchForUsersAC = (users: UserType | null) => ({type: 'SEARCH-FOR-
 export const isResultFromFromGitHubAC = (isResult: boolean) => ({type: 'IS-RESULT-FROM-GITHUB', isResult} as const);
 export const setCurrentPageAC = (page: number) => ({type: 'SET-CURRENT_PAGE', page} as const);
 export const setSortingAC = () => ({type: 'SET-SORTING'} as const);
-export const setUserAC = (user:UserItems) => ({type: 'SET-USER', user} as const);
-export const getDataFromInputAC = (value:string) => ({type: 'GET-VALUE', value} as const);
+export const setUserAC = (user: UserItems) => ({type: 'SET-USER', user} as const);
+export const getDataFromInputAC = (value: string) => ({type: 'GET-VALUE', value} as const);
 
 
-
-export const getUsersTS = (value: string, currentPage: number, perPAge: number, isSort:boolean): AppThunk => async (dispatch: Dispatch) => {
+export const getUsersTS = (value: string, currentPage: number, perPAge: number, isSort: boolean): AppThunk => async (dispatch: Dispatch) => {
     try {
         let res = await usersApi.getUsers(value, currentPage, perPAge, isSort);
         const users = res.data;

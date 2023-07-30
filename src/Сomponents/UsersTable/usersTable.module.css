@@ -1,0 +1,62 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+.thead {
+    background-color: #474955;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+
+}
+
+thead th {
+    padding: 15px;
+}
+
+tbody td {
+    border: 1px solid #E3E6EC;
+    color: gray;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 18px;
+    padding: 15px;
+    width: 100%;
+    display: inline-block;
+
+
+}
+
+.count {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.sorting {
+    margin-bottom: 20px;
+}
+
+
+.rowLink {
+    display: block;
+    width: 100%;
+
+
+}
+
+
+tbody tr {
+    display: inline-block;
+    width: 100%;
+}
+
+tbody td:hover {
+    font-size: 28px;
+    color: darkblue;
+}
+
